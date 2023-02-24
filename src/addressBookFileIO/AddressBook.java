@@ -136,4 +136,7 @@ public class AddressBook {
         long count1 = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(stateSearch)).count();
         System.out.println(count1+" of persons in "+stateSearch);
     }
+    public void sortByName() {
+        contacts = (ArrayList<Contacts>) contacts.stream().sorted(Comparator.comparing(Contacts::getF_name)).collect(Collectors.toList());
+    }
 }
