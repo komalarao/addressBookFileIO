@@ -1,8 +1,8 @@
 package addressBookFileIO;
 import java.util.*;
-import com.sun.tools.javac.Main;
 public class AddressBookMain {
 	static Contacts contact;
+    static ArrayList<Contacts> contacts = new ArrayList<Contacts>(); //using Arraylist as it is easier than using Array
     public void CreatingContact() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the contact details");
@@ -25,11 +25,15 @@ public class AddressBookMain {
         System.out.println("Contact created");
         contact = new Contacts(f_name,l_name,address,city,state,zip,ph_no,email);
     }
-
+    public void addingContacts() {
+        contacts.add(contact);
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to the address book program");
         AddressBookMain addressBook = new AddressBookMain();
         addressBook.CreatingContact();
         System.out.println(contact);
+        addressBook.addingContacts();
+        System.out.println(contacts.get(0));
     }
 }
